@@ -25,7 +25,8 @@ function OrderSuccess({ order, onClose }) {
   };
 
   const handleDownloadInvoice = () => {
-    const invoiceUrl = `http://localhost:5000/api/orders/${order.orderId}/invoice`;
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+    const invoiceUrl = `${apiUrl}/orders/${order.orderId}/invoice`;
     window.open(invoiceUrl, '_blank');
   };
 
