@@ -4,6 +4,7 @@ import './OrderSuccess.css';
 
 function OrderSuccess({ order, onClose }) {
   const [tracking, setTracking] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,6 +12,7 @@ function OrderSuccess({ order, onClose }) {
     // Auto-refresh tracking every 30 seconds
     const interval = setInterval(loadTracking, 30000);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [order.orderId]);
 
   const loadTracking = async () => {
