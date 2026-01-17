@@ -1,9 +1,16 @@
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
+// Log API URL in development
+if (process.env.NODE_ENV === 'development') {
+  console.log('📡 API URL:', API_URL);
+}
+
 // Helper function for API requests
 async function apiRequest(endpoint, options = {}) {
   try {
-    const response = await fetch(`${API_URL}${endpoint}`, {
+    const url = `${API_URL}${endpoint}`;
+    
+    const response = await fetch(url, {
       headers: {
         'Content-Type': 'application/json',
         ...options.headers
